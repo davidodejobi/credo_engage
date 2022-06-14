@@ -125,12 +125,12 @@ class _EngagementState extends State<Engagement> {
                     ),
                     onPressed: () {
                       // Share.share(_textEditingController.text);
-                      Share.shareFiles(
-                        [
-                          ipp.imagePaths.first,
-                        ],
-                        text: _textEditingController.text,
-                      );
+                      ipp.imagePaths.isNotEmpty
+                          ? Share.shareFiles(
+                              [ipp.imagePaths.first],
+                              text: _textEditingController.text,
+                            )
+                          : Share.share(_textEditingController.text);
                     },
                   ),
                 ),
